@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useHistory, useLocation } from 'react-router-dom'
-import { AppBar, Typography, Toolbar, Button, Avatar } from '@material-ui/core'
 import useStyles from './styles'
 import { useDispatch } from 'react-redux'
 import decode from 'jwt-decode'
@@ -36,23 +35,23 @@ export const Navbar = () => {
    }, [location, user?.token])
 
    return (
-      <AppBar className={classes.appBar} position="static" color="inherit" >
+      <div className="" >
          <div className={classes.brandContainer}>
-            <Typography className={classes.heading} component={Link} to="/" variant="h2" align="center" >Instaverse</Typography>
+            <p className={classes.heading} component={Link} to="/" >Instaverse</p>
             <img className={classes.image} src={instaverse} alt="instaverse" height="60" />
          </div>
-         <Toolbar className={classes.toolbar}>
+         <div className="">
             {user ? (
                <div className={classes.profile}>
-                  <Avatar className={classes.purple} alt={user.result.name} src={user.result.imageUrl}>{user.result.name.charAt(0)}</Avatar>
-                  <Typography className={classes.userName} variant="h6">{user.result.name}</Typography>
-                  <Button variant="contained" className={classes.logout} onClick={logout} color="secondary">Logout</Button>
+                  <h1 className="" alt={user.result.name}>{user.result.name.charAt(0)}</h1>
+                  <p className={classes.userName} variant="h6">{user.result.name}</p>
+                  <button className="" onClick={logout}>Logout</button>
                </div>
             ) : (
-               <Button component={Link} to="/auth" variant="contained" color="primary">Sign In</Button>
+               <button component={Link} to="/auth" >Sign In</button>
             )
             }
-         </Toolbar>
-      </AppBar>
+         </div>
+      </div>
    )
 }
