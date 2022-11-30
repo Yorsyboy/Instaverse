@@ -24,6 +24,15 @@ app.get('/', (req, res) => {
 
 const PORT = process.env.PORT || 5001
 
-mongoose.connect(process.env.CONNECTION_URL)
-   .then(() => app.listen(PORT, () => console.log(`Server running on port:${PORT}`)))
-   .catch(err => console.log(err.message))
+const connectDB = async () => {
+   try {
+      await mongoose.connect(process.env.CONNECTION_URL);
+      app.listen(PORT, () => console.log(`Server running on port:${PORT}`))
+   } catch (error) {
+      console.log("Connection MonngoDB Failed", error.message)
+   }
+}
+
+connectDB();
+mongoose.connection.on('connected', () => console.log("MongoDB Connected"));
+mongoose.connection.on('error', (error) => console.log(error));
