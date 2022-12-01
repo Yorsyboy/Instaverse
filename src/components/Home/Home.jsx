@@ -1,7 +1,12 @@
 import React from 'react'
+import PostList from '../Post/PostList'
+import Form from '../Form/Form'
 
 export default function Home() {
   return (
-    <div>Home</div>
+    <div>
+      <PostList />
+      <Form />
+    </div>
   )
 }

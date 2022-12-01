@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate, useLocation } from "react-router";
+import { useNavigate } from "react-router";
 import { FaBars } from "react-icons/fa";
 
 import logo from "../../images/instaverse.png";
@@ -7,12 +7,6 @@ import logo from "../../images/instaverse.png";
 export default function Navbar() {
   const [navbarOpen, setNavbarOpen] = useState(false);
   const navigate = useNavigate();
-  // const location = useLocation();
-  // const path = (route) => {
-  //    if (location.pathname === route) {
-  //      return true;
-  //    }
-  //  };
   return (
     <nav className="relative flex items-center justify-between px-2 py-3 bg-pink-500 mb-3">
       <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
