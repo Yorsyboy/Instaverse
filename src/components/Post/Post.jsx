@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Post() {
+export default function Posts() {
   return (
     <div>Posts</div>
   )
